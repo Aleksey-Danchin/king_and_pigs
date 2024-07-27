@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://brxf18nqi6d7g"]
+[gd_scene load_steps=17 format=3 uid="uid://brxf18nqi6d7g"]
 
 [ext_resource type="PackedScene" uid="uid://weu27wlfed6n" path="res://elements/level/level.tscn" id="1_4lpug"]
 [ext_resource type="PackedScene" uid="uid://b10ic8al3t6q3" path="res://elements/king/king.tscn" id="2_tjpok"]
@@ -11,20 +11,23 @@
 [ext_resource type="Script" path="res://states/player/player_fall.gd" id="9_msiar"]
 [ext_resource type="Script" path="res://states/player/player_ground.gd" id="10_tq385"]
 [ext_resource type="Script" path="res://states/player/player_hurt.gd" id="11_p5xnr"]
+[ext_resource type="PackedScene" uid="uid://ci1ofw71m1nxd" path="res://elements/pig/pig.tscn" id="12_wn5fh"]
+[ext_resource type="Script" path="res://states/mob/mob_patrol.gd" id="13_ykbxp"]
+[ext_resource type="Script" path="res://states/mob/mob_fall.gd" id="14_hwlwy"]
+[ext_resource type="Script" path="res://states/mob/mob_idle.gd" id="15_7kcxe"]
+[ext_resource type="Script" path="res://states/mob/mob_ground.gd" id="16_pa6p0"]
 
 [node name="Level_01" instance=ExtResource("1_4lpug")]
 
 [node name="TileMap" parent="." index="0"]
-layer_0/tile_data = PackedInt32Array(131077, 196608, 8, 65541, 196608, 8, 5, 196608, 8, -65531, 196608, 8, -131067, 196608, 8, -196603, 196608, 8, -262139, 196608, 7, 131076, 131072, 8, 65540, 131072, 8, 4, 131072, 8, -65532, 131072, 8, -131068, 131072, 8, -196604, 131072, 8, -262140, 524288, 10, 131075, 131072, 8, 65539, 131072, 8, 3, 131072, 8, -65533, 131072, 8, -131069, 131072, 8, -196605, 131072, 8, -262141, 524288, 10, 262146, 131072, 9, 196610, 131072, 8, 131074, 131072, 8, 65538, 131072, 8, 2, 131072, 8, -65534, 131072, 8, -131070, 131072, 8, -196606, 131072, 8, -262142, 458752, 10, 262145, 131072, 9, 196609, 131072, 8, 131073, 131072, 8, 65537, 131072, 8, 1, 131072, 8, -65535, 131072, 8, -131071, 131072, 8, -196607, 131072, 8, -262143, 458752, 10, 262144, 131072, 9, 196608, 131072, 8, 131072, 131072, 8, 65536, 131072, 8, 0, 131072, 8, -65536, 131072, 8, -131072, 131072, 8, -196608, 131072, 8, -262144, 524288, 10, 327679, 131072, 9, 262143, 131072, 8, 196607, 131072, 8, 131071, 131072, 8, 65535, 131072, 8, -1, 131072, 8, -65537, 131072, 8, -131073, 131072, 8, -196609, 458752, 10, 327678, 131072, 9, 262142, 131072, 8, 196606, 131072, 8, 131070, 131072, 8, 65534, 131072, 8, -2, 131072, 8, -65538, 131072, 8, -131074, 131072, 8, -196610, 131072, 7, 327677, 131072, 9, 262141, 131072, 8, 196605, 131072, 8, 131069, 131072, 8, 65533, 131072, 8, -3, 131072, 8, -65539, 131072, 8, -131075, 131072, 8, -196611, 131072, 7, 327676, 65536, 9, 262140, 65536, 8, 196604, 65536, 8, 131068, 65536, 8, 65532, 65536, 8, -4, 65536, 8, -65540, 65536, 8, -131076, 65536, 8, -196612, 65536, 7, 196611, 458752, 7, 196612, 131072, 9, 196613, 196608, 9, 262147, 196608, 9)
+layer_0/tile_data = PackedInt32Array(196613, 196608, 9, 131077, 196608, 8, 65541, 196608, 8, 5, 196608, 8, -65531, 196608, 8, -131067, 196608, 8, -196603, 196608, 8, -262139, 196608, 7, 196612, 131072, 9, 131076, 131072, 8, 65540, 131072, 8, 4, 131072, 8, -65532, 131072, 8, -131068, 131072, 8, -196604, 131072, 8, -262140, 524288, 10, 262147, 196608, 9, 196611, 458752, 7, 131075, 131072, 8, 65539, 131072, 8, 3, 131072, 8, -65533, 131072, 8, -131069, 131072, 8, -196605, 131072, 8, -262141, 524288, 10, 262146, 131072, 9, 196610, 131072, 8, 131074, 131072, 8, 65538, 131072, 8, 2, 131072, 8, -65534, 131072, 8, -131070, 131072, 8, -196606, 131072, 8, -262142, 458752, 10, 262145, 131072, 9, 196609, 131072, 8, 131073, 131072, 8, 65537, 131072, 8, 1, 131072, 8, -65535, 131072, 8, -131071, 131072, 8, -196607, 131072, 8, -262143, 458752, 10, 262144, 131072, 9, 196608, 131072, 8, 131072, 131072, 8, 65536, 131072, 8, 0, 131072, 8, -65536, 131072, 8, -131072, 131072, 8, -196608, 131072, 8, -262144, 524288, 10, 327679, 131072, 9, 262143, 131072, 8, 196607, 131072, 8, 131071, 131072, 8, 65535, 131072, 8, -1, 131072, 8, -65537, 131072, 8, -131073, 131072, 8, -196609, 458752, 10, 327678, 131072, 9, 262142, 131072, 8, 196606, 131072, 8, 131070, 131072, 8, 65534, 131072, 8, -2, 131072, 8, -65538, 131072, 8, -131074, 131072, 8, -196610, 131072, 7, 327677, 131072, 9, 262141, 131072, 8, 196605, 131072, 8, 131069, 131072, 8, 65533, 131072, 8, -3, 131072, 8, -65539, 131072, 8, -131075, 131072, 8, -196611, 131072, 7, 327676, 65536, 9, 262140, 65536, 8, 196604, 65536, 8, 131068, 65536, 8, 65532, 65536, 8, -4, 65536, 8, -65540, 65536, 8, -131076, 65536, 8, -196612, 65536, 7)
 layer_1/tile_data = PackedInt32Array(393223, 196608, 3, 327687, 196608, 2, 262151, 196608, 2, 196615, 196608, 2, 131079, 196608, 2, 65543, 196608, 2, 7, 196608, 2, -65529, 196608, 2, -131065, 196608, 2, -196601, 196608, 2, -262137, 196608, 2, -327673, 196608, 2, -393209, 196608, 1, 393222, 131072, 3, 327686, 131072, 2, 262150, 524288, 2, 196614, 65536, 2, 131078, 65536, 2, 65542, 65536, 2, 6, 65536, 2, -65530, 65536, 2, -131066, 65536, 2, -196602, 65536, 2, -262138, 65536, 2, -327674, 524288, 1, -393210, 131072, 1, 393221, 131072, 3, 327685, 131072, 2, -327675, 131072, 3, -393211, 131072, 1, 393220, 131072, 3, 327684, 524288, 2, -327676, 131072, 3, -393212, 131072, 1, 393219, 131072, 3, 327683, 131072, 1, -327677, 131072, 3, -393213, 131072, 1, 393218, 131072, 3, 327682, 131072, 1, -327678, 131072, 3, -393214, 131072, 1, 393217, 131072, 3, 327681, 131072, 1, -327679, 131072, 3, -393215, 131072, 1, 393216, 131072, 3, 327680, 131072, 1, -327680, 131072, 3, -393216, 131072, 1, 458751, 131072, 3, 393215, 131072, 1, -262145, 131072, 3, -327681, 131072, 1, 458750, 131072, 3, 393214, 720896, 1, -262146, 131072, 3, -327682, 131072, 1, 458749, 131072, 3, 393213, 131072, 1, -262147, 131072, 3, -327683, 131072, 1, 458748, 131072, 3, 393212, 131072, 1, -262148, 131072, 3, -327684, 131072, 1, 458747, 131072, 3, 393211, 458752, 2, 327675, 196608, 2, 262139, 196608, 2, 196603, 196608, 2, 131067, 196608, 2, 65531, 196608, 2, -5, 196608, 2, -65541, 196608, 2, -131077, 196608, 2, -196613, 196608, 2, -262149, 458752, 1, -327685, 131072, 1, 458746, 65536, 3, 393210, 65536, 2, 327674, 65536, 2, 262138, 65536, 2, 196602, 65536, 2, 131066, 65536, 2, 65530, 65536, 2, -6, 65536, 2, -65542, 65536, 2, -131078, 65536, 2, -196614, 65536, 2, -262150, 65536, 2, -327686, 65536, 1, 262149, 131072, 1, 262148, 65536, 1, 327678, 327680, 1)
 
 [node name="King" parent="." index="1" instance=ExtResource("2_tjpok")]
+position = Vector2(-50, 115)
 
 [node name="Camera2D" type="Camera2D" parent="King" index="0"]
 zoom = Vector2(3, 3)
-
-[node name="AnimatedSprite2D" parent="King" index="1"]
-animation = &"ground"
 
 [node name="Gravity" parent="King" index="5" node_paths=PackedStringArray("character") instance=ExtResource("4_w3w6b")]
 character = NodePath("..")
@@ -67,4 +70,48 @@ animation_player = NodePath("../../AnimationPlayer")
 [node name="PlayerHurt" type="Node" parent="King/PlayerFSM" index="6"]
 script = ExtResource("11_p5xnr")
 
-[editable path="King"]
+[node name="mobs" type="Node2D" parent="." index="2"]
+
+[node name="Pig" parent="mobs" index="0" instance=ExtResource("12_wn5fh")]
+position = Vector2(49, 107)
+
+[node name="AnimatedSprite2D" parent="mobs/Pig" index="6"]
+animation = &"dead"
+frame_progress = 0.0
+
+[node name="Gravity" parent="mobs/Pig" index="11" node_paths=PackedStringArray("character") instance=ExtResource("4_w3w6b")]
+character = NodePath("..")
+
+[node name="FinishStateMachine" type="Node" parent="mobs/Pig" index="12" node_paths=PackedStringArray("character", "state_initial")]
+script = ExtResource("3_kqg06")
+character = NodePath("..")
+state_initial = NodePath("MobIdle")
+
+[node name="MobPatrol" type="Node" parent="mobs/Pig/FinishStateMachine" index="0" node_paths=PackedStringArray("left_ray", "left_down_ray", "right_ray", "right_down_ray", "character", "animation_player")]
+script = ExtResource("13_ykbxp")
+is_idle_in_end = true
+left_ray = NodePath("../../LeftRayCast")
+left_down_ray = NodePath("../../LeftDownRayCast")
+right_ray = NodePath("../../RightRayCast")
+right_down_ray = NodePath("../../RightDownRayCast")
+character = NodePath("../..")
+animation_player = NodePath("../../AnimationPlayer")
+
+[node name="MobFall" type="Node" parent="mobs/Pig/FinishStateMachine" index="1" node_paths=PackedStringArray("character", "animation_player")]
+script = ExtResource("14_hwlwy")
+character = NodePath("../..")
+animation_player = NodePath("../../AnimationPlayer")
+
+[node name="MobIdle" type="Node" parent="mobs/Pig/FinishStateMachine" index="2" node_paths=PackedStringArray("character", "animation_player")]
+script = ExtResource("15_7kcxe")
+patrolable = true
+patrol_cooldown = 1.5
+character = NodePath("../..")
+animation_player = NodePath("../../AnimationPlayer")
+
+[node name="MobGround" type="Node" parent="mobs/Pig/FinishStateMachine" index="3" node_paths=PackedStringArray("character", "animation_player")]
+script = ExtResource("16_pa6p0")
+character = NodePath("../..")
+animation_player = NodePath("../../AnimationPlayer")
+
+[editable path="mobs/Pig"]
